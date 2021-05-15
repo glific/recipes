@@ -48,3 +48,6 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Recipe
+You can find the Chole recipe [here](https://www.cookwithmanali.com/punjabi-chole-chickpeas-curry/)
