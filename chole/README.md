@@ -2,6 +2,14 @@
 
 This is recipe for fetching ward for a user when they share their location.
 
+We are using https://www.ichangemycity.com map API to fetch the ward.
+
+Response
+
+```
+  { ward_iid: '938', ward_name: 'KW Ward', ward_no: '4', city_id: '2' }
+```
+
 This project is bases on [Nest](https://github.com/nestjs/nest) framework.
 
 ## Installation

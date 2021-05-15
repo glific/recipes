@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 
 import { WardService } from './ward.service';
 
@@ -6,8 +6,8 @@ import { WardService } from './ward.service';
 export class WardController {
   constructor(private readonly wardService: WardService) {}
 
-  @Get()
-  getWard() {
-    return this.wardService.getWardInfo();
+  @Post()
+  getWard(@Body('results') results: any) {
+    return this.wardService.getWardInfo(results.location);
   }
 }
