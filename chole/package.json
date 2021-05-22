@@ -2,9 +2,9 @@
   "name": "chole",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Kurund Jalmi",
+  "license": "AGPL-3.0",
   "private": true,
-  "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
