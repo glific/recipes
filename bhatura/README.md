@@ -34,6 +34,12 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Usage
+
+`http://glific.test:3001/bq`
+
+- returns the contact data from BigQuery
+
 ## Test
 
 ```bash
@@ -47,7 +53,6 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## End points
+## Recipe
 
-- http://glific.test:3001/bq
-  - returns the contact data from BigQuery
+You can find the Bhatura recipe [here](https://www.indianhealthyrecipes.com/bhatura/)
