@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { SurveyService } from './survey.service';
 
@@ -9,5 +9,10 @@ export class SurveyController {
   @Post()
   saveResponse(@Body('results') results: any) {
     return this.surveyService.save(results);
+  }
+
+  @Get('data')
+  fetchData() {
+    return this.surveyService.fetch();
   }
 }
