@@ -4,6 +4,10 @@ import { ConfigService } from '@nestjs/config';
 export class SurveyService {
   private authClient;
 
+  private spreadSheetId = this.configService.get<string>(
+    'GOOGLE_SPREADSHEET_ID',
+  );
+
   constructor(private configService: ConfigService) {
     const keyFilename = this.configService.get<string>(
       'GOOGLE_APPLICATION_KEY',
@@ -21,21 +25,13 @@ export class SurveyService {
     return 'Save data';
   }
 
-  fetch() {
-    return this.listMajors();
-  }
-
-  /**
-   * Prints the names and majors of students in a sample spreadsheet:
-   * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-   */
-  async listMajors() {
+  async fetch() {
     const auth = await this.authClient.getClient();
     const { google } = require('googleapis');
     const sheets = google.sheets({ version: 'v4', auth });
     sheets.spreadsheets.values.get(
       {
-        spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+        spreadsheetId: this.spreadSheetId,
         range: 'Class Data!A2:E',
       },
       (err, res) => {
