@@ -34,7 +34,7 @@ $ npm run start:prod
 ## Usage
 
 Endpoint that should be configured as webhook
-`http://localhost:3001/ward`
+`http://glific.test:3001/ward`
 
 ## Test
 
@@ -50,4 +50,5 @@ $ npm run test:cov
 ```
 
 ## Recipe
+
 You can find the Chole recipe [here](https://www.cookwithmanali.com/punjabi-chole-chickpeas-curry/)
