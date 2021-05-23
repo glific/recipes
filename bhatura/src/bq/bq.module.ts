@@ -5,7 +5,6 @@ import { BqService } from './bq.service';
 import { PgService } from './../pg/pg.service';
 
 @Module({
-  imports: [],
   controllers: [BqController],
   providers: [BqService, PgService],
 })
