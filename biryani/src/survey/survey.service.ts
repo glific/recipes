@@ -16,13 +16,42 @@ export class SurveyService {
 
     this.authClient = new sheets.auth.GoogleAuth({
       keyFilename,
-      // Scopes can be specified either as an array or as a single, space-delimited string.
-      scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
   }
 
-  save(response) {
-    return 'Save data';
+  async save(response) {
+    const values = [
+      [response.name.input, response.city.input, response.feedback.input],
+    ];
+
+    const resource = {
+      values,
+    };
+
+    const auth = await this.authClient.getClient();
+    const { google } = require('googleapis');
+    const sheets = google.sheets({ version: 'v4', auth });
+
+    sheets.spreadsheets.values.append(
+      {
+        spreadsheetId: this.spreadSheetId,
+        range: 'Contact Data!B2:D',
+        valueInputOption: 'USER_ENTERED',
+        insertDataOption: 'INSERT_ROWS',
+        resource,
+      },
+      (err, result) => {
+        if (err) {
+          // Handle error.
+          console.log(err);
+        } else {
+          console.log('The response is appended to the spreadsheet!');
+        }
+      },
+    );
+
+    return 'The response is appended to the spreadsheet!';
   }
 
   async fetch() {
@@ -32,16 +61,16 @@ export class SurveyService {
     sheets.spreadsheets.values.get(
       {
         spreadsheetId: this.spreadSheetId,
-        range: 'Class Data!A2:E',
+        range: 'Contact Data!B2:D',
       },
       (err, res) => {
         if (err) return console.log('The API returned an error: ' + err);
         const rows = res.data.values;
         if (rows.length) {
-          console.log('Name, Major:');
-          // Print columns A and E, which correspond to indices 0 and 4.
+          console.log('Name, City, Feedback');
+          // Print columns B and D, which correspond to indices 0 and 2.
           rows.map((row) => {
-            console.log(`${row[0]}, ${row[4]}`);
+            console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
           });
         } else {
           console.log('No data found.');
