@@ -15,9 +15,14 @@ export class PgService {
 
   save(contact) {
     console.log('contact', contact);
-
     this.connection.query(
-      `INSERT (name, phone) INTO contacts VALUES (${contact.name}, ${contact.phone})`,
+      `INSERT INTO contacts
+        (id, name, phone, language, inserted_at, updated_at)
+      VALUES
+        (
+          ${contact.id}, '${contact.name}', '${contact.phone}', '${contact.language}',
+          '${contact.inserted_at.value}', '${contact.updated_at.value}'
+        )`,
     );
   }
 }

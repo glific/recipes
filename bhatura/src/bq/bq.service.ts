@@ -27,8 +27,8 @@ export class BqService {
 
     // fetch contact information
     const query = `
-          SELECT c.id, c.name, c.phone, c.updated_at FROM (
-            SELECT id, name, phone, updated_at, ROW_NUMBER() OVER (
+          SELECT c.id, c.name, c.phone, c.language, c.inserted_at, c.updated_at FROM (
+            SELECT id, name, phone, language, inserted_at, updated_at, ROW_NUMBER() OVER (
               PARTITION BY id ORDER BY updated_at DESC
             ) AS rn
             FROM \`${contactTable}\`) c
