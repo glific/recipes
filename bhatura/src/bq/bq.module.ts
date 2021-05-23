@@ -1,11 +1,12 @@
-import { HttpModule, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 
 import { BqController } from './bq.controller';
 import { BqService } from './bq.service';
+import { PgService } from './../pg/pg.service';
 
 @Module({
-  imports: [HttpModule],
+  imports: [],
   controllers: [BqController],
-  providers: [BqService],
+  providers: [BqService, PgService],
 })
 export class BqModule {}
