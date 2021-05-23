@@ -36,11 +36,11 @@ $ npm run start:prod
 
 ## Usage
 
-`http://glific.test:3001/survery`
+`http://glific.test:3001/survey`
 
 - This endpoint can be called to save the data to the spreadsheet. This example assumses three fields: name, city, feedback
 
-`http://glific.test:3001/survery/data`
+`http://glific.test:3001/survey/data`
 
 - fetch the data from the spreadsheet
 
