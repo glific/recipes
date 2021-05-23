@@ -22,7 +22,13 @@ export class PgService {
         (
           ${contact.id}, '${contact.name}', '${contact.phone}', '${contact.language}',
           '${contact.inserted_at.value}', '${contact.updated_at.value}'
-        )`,
+        )
+        ON CONFLICT (id) DO UPDATE
+        SET name = EXCLUDED.name,
+        phone = EXCLUDED.phone,
+        language = EXCLUDED.language,
+        updated_at = EXCLUDED.updated_at
+      `,
     );
   }
 }
