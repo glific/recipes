@@ -55,27 +55,36 @@ export class SurveyService {
   }
 
   async fetch() {
+    return await this.get();
+  }
+
+  async get() {
     const auth = await this.authClient.getClient();
     const { google } = require('googleapis');
     const sheets = google.sheets({ version: 'v4', auth });
-    sheets.spreadsheets.values.get(
-      {
-        spreadsheetId: this.spreadSheetId,
-        range: 'Contact Data!B2:D',
-      },
-      (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        const rows = res.data.values;
-        if (rows.length) {
-          console.log('Name, City, Feedback');
-          // Print columns B and D, which correspond to indices 0 and 2.
-          rows.map((row) => {
-            console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
-          });
-        } else {
-          console.log('No data found.');
-        }
-      },
-    );
+
+    return new Promise((resolve) => {
+      sheets.spreadsheets.values.get(
+        {
+          spreadsheetId: this.spreadSheetId,
+          range: 'Contact Data!B2:D',
+        },
+        (err, res) => {
+          if (err) return console.log('The API returned an error: ' + err);
+          const rows = res.data.values;
+          if (rows.length) {
+            console.log('Name, City, Feedback');
+            // Print columns B and D, which correspond to indices 0 and 2.
+            rows.map((row) => {
+              console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
+            });
+          } else {
+            console.log('No data found.');
+          }
+
+          resolve(rows);
+        },
+      );
+    });
   }
 }
