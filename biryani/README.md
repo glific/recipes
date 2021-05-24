@@ -1,6 +1,6 @@
 ## Description
 
-This is a recipe that provides an endpoint that could be used to periodically dump the data from BigQuery to a Postgres database.
+This is a recipe that provides an way to perform read and write operations on google spredsheets via webhook calls.
 
 This project is based on [Nest](https://github.com/nestjs/nest) framework.
 
