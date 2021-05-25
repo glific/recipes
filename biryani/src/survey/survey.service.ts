@@ -22,7 +22,7 @@ export class SurveyService {
 
   save(response, contact) {
     this.addData(response, contact);
-    return 'The response is saved to the spreadsheet!';
+    return { message: 'The response is saved to the spreadsheet!' };
   }
 
   async addData(response, contact) {
