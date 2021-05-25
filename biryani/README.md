@@ -36,13 +36,15 @@ $ npm run start:prod
 
 ## Usage
 
+This example assumes four columns in the Google Spreadsheet: phone, name, city, feedback
+
 `http://glific.test:3001/survey`
 
-- This endpoint can be called to save the data to the spreadsheet. This example assumses three fields: name, city, feedback
+- This endpoint can be called to save the data to the spreadsheet.
 
-`http://glific.test:3001/survey/data`
+`http://glific.test:3001/survey/<phone number>`
 
-- fetch the data from the spreadsheet
+- fetch the data based on phone number from the spreadsheet
 
 ## Test
 

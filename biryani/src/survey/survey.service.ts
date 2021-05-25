@@ -22,7 +22,12 @@ export class SurveyService {
 
   async save(response) {
     const values = [
-      [response.name.input, response.city.input, response.feedback.input],
+      [
+        response.phone.input,
+        response.name.input,
+        response.city.input,
+        response.feedback.input,
+      ],
     ];
 
     const resource = {
