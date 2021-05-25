@@ -73,16 +73,15 @@ export class SurveyService {
           if (err) return console.log('The API returned an error: ' + err);
           const rows = res.data.values;
           if (rows.length) {
-            console.log('Name, City, Feedback');
-            // Print columns B and D, which correspond to indices 0 and 2.
             rows.map((row) => {
-              console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
+              if (row[0] === phoneNumber) {
+                return resolve(row);
+              }
+              return false;
             });
           } else {
             console.log('No data found.');
           }
-
-          resolve(rows);
         },
       );
     });
