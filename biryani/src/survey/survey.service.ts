@@ -20,7 +20,12 @@ export class SurveyService {
     });
   }
 
-  async save(response) {
+  save(response) {
+    this.addData(response);
+    return 'The response is appended to the spreadsheet!';
+  }
+
+  async addData(response) {
     const values = [
       [
         response.phone.input,
@@ -55,8 +60,6 @@ export class SurveyService {
         }
       },
     );
-
-    return 'The response is appended to the spreadsheet!';
   }
 
   async fetch(phoneNumber) {
