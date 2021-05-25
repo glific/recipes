@@ -36,7 +36,7 @@ export class SurveyService {
     sheets.spreadsheets.values.append(
       {
         spreadsheetId: this.spreadSheetId,
-        range: 'Contact Data!B2:D',
+        range: 'Contact Data!A2:D',
         valueInputOption: 'USER_ENTERED',
         insertDataOption: 'INSERT_ROWS',
         resource,
@@ -54,11 +54,11 @@ export class SurveyService {
     return 'The response is appended to the spreadsheet!';
   }
 
-  async fetch() {
-    return await this.get();
+  async fetch(phoneNumber) {
+    return await this.get(phoneNumber);
   }
 
-  async get() {
+  async get(phoneNumber) {
     const auth = await this.authClient.getClient();
     const { google } = require('googleapis');
     const sheets = google.sheets({ version: 'v4', auth });
@@ -67,7 +67,7 @@ export class SurveyService {
       sheets.spreadsheets.values.get(
         {
           spreadsheetId: this.spreadSheetId,
-          range: 'Contact Data!B2:D',
+          range: 'Contact Data!A2:D',
         },
         (err, res) => {
           if (err) return console.log('The API returned an error: ' + err);
