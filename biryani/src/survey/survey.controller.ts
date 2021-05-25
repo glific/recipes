@@ -7,8 +7,8 @@ export class SurveyController {
   constructor(private readonly surveyService: SurveyService) {}
 
   @Post()
-  saveResponse(@Body('results') results: any) {
-    return this.surveyService.save(results);
+  saveResponse(@Body('results') results: any, @Body('contact') contact: any) {
+    return this.surveyService.save(results, contact);
   }
 
   @Get(':number')

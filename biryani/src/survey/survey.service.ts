@@ -20,16 +20,16 @@ export class SurveyService {
     });
   }
 
-  save(response) {
-    this.addData(response);
-    return 'The response is appended to the spreadsheet!';
+  save(response, contact) {
+    this.addData(response, contact);
+    return 'The response is saved to the spreadsheet!';
   }
 
-  async addData(response) {
+  async addData(response, contact) {
     const values = [
       [
-        response.phone.input,
-        response.name.input,
+        contact.phone,
+        contact.name,
         response.city.input,
         response.feedback.input,
       ],
