@@ -10,7 +10,7 @@ export class BqController {
     private readonly PqService: PgService,
   ) {}
 
-  @Post()
+  @Post('/contact')
   getData() {
     this.BqService.fetchData().then((data) => {
       this.PqService.saveContact(data);

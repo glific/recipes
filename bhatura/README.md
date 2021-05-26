@@ -19,7 +19,9 @@ $ npm install
 ## Configuration
 
 - `copy .env.sample to .env`
-- Update BigQuery credentials
+  - Update BigQuery credentials
+- `copy ormconfig.json.sample to ormconfig.json`
+  - Update database credentials
 
 ## Running the app
 
@@ -36,9 +38,9 @@ $ npm run start:prod
 
 ## Usage
 
-`http://glific.test:3001/bq`
+`http://glific.test:3001/bq/contact`
 
-- returns the contact data from BigQuery
+- returns the contact data from BigQuery and saves it to local postgres database/
 
 ## Test
 
