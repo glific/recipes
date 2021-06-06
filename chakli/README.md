@@ -19,7 +19,7 @@ $ npm install
 ## Configuration
 
 - `copy .env.sample to .env`
-- Update MailChimp API key
+- Update required fields
 
 ## Running the app
 
