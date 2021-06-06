@@ -1,6 +1,6 @@
 ## Description
 
-This is a recipe that provides an way to subscribe for a newsletter using Mailchimp.
+This is a recipe that provides an way to manage mailing subscription using Mailchimp.
 
 This project is based on [Nest](https://github.com/nestjs/nest) framework.
 
