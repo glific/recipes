@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 import { ListService } from './list.service';
 
@@ -17,5 +17,11 @@ export class ListController {
   unsubscribe(@Body('results') results: any) {
     // call unsubscribe service
     return this.listService.unsubscribe(results);
+  }
+
+  @Get('lists')
+  getLists() {
+    // call get getLists service
+    return this.listService.getLists();
   }
 }

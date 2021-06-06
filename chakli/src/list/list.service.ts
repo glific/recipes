@@ -37,4 +37,9 @@ export class ListService {
     await this.managaeSubscription(response, 'unsubscribed');
     return { message: 'Unsubscribed successfully.' };
   }
+
+  async getLists() {
+    const lists = await this.mailchimpClient.lists.getAllLists();
+    return { lists };
+  }
 }

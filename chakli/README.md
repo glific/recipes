@@ -14,7 +14,7 @@ $ npm install
 
 1. You need to create a MailChimp Account
 2. Generate API key - [Instructions](https://mailchimp.com/developer/marketing/guides/quick-start/#generate-your-api-key)
-3. Create a list in MailChimp
+3. Create a list in MailChimp (For developer default list is created and you cannot create new)
 
 ## Configuration
 
@@ -40,7 +40,7 @@ $ npm run start:prod
 
 - In the flow `message response` should be of type `has an email` and the result name is `email`.
 
-- This example assumes you have created a list in MailChimp
+- This example assumes you have created a list in MailChimp and list id is updated in your .env file. You can use `lists` endpoint to find the id.
 
 `http://glific.test:3001/subscribe`
 
@@ -49,6 +49,10 @@ $ npm run start:prod
 `http://glific.test:3001/unsubscribe`
 
 - This endpoint can be called for unsubscribing from a list.
+
+`http://glific.test:3001/lists`
+
+- This endpoint can be called for getting lists.
 
 ## Test
 
