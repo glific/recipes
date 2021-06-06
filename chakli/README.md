@@ -14,6 +14,7 @@ $ npm install
 
 1. You need to create a MailChimp Account
 2. Generate API key - [Instructions](https://mailchimp.com/developer/marketing/guides/quick-start/#generate-your-api-key)
+3. Create a list in MailChimp
 
 ## Configuration
 
@@ -35,7 +36,11 @@ $ npm run start:prod
 
 ## Usage
 
-This example assumes you have created a list in MailChimp
+**Assumption**
+
+- In the flow `message response` should be of type `has an email` and the result name is `email`.
+
+- This example assumes you have created a list in MailChimp
 
 `http://glific.test:3001/subscribe`
 

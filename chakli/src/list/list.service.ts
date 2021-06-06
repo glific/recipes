@@ -17,7 +17,7 @@ export class ListService {
   async managaeSubscription(data, status) {
     const listId = this.configService.get<string>('MAILCHIMP_LIST_ID');
 
-    const email_address = data.email_address;
+    const email_address = data.email.input;
     const md5 = require('md5');
     const subscriber_hash = md5(email_address.toLowerCase());
 
@@ -28,13 +28,13 @@ export class ListService {
     });
   }
 
-  subscribe(response) {
-    this.managaeSubscription(response, 'subscribed');
+  async subscribe(response) {
+    await this.managaeSubscription(response, 'subscribed');
     return { message: 'Subscribed successfully.' };
   }
 
-  unsubscribe(response) {
-    this.managaeSubscription(response, 'unsubscribed');
+  async unsubscribe(response) {
+    await this.managaeSubscription(response, 'unsubscribed');
     return { message: 'Unsubscribed successfully.' };
   }
 }
