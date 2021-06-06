@@ -8,7 +8,6 @@ export class ListController {
 
   @Post('subscribe')
   subscribe(@Body('results') results: any) {
-    console.log(results);
     // call subscribe service
     return this.listService.subscribe(results);
   }
