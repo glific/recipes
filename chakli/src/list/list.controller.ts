@@ -2,17 +2,19 @@ import { Body, Controller, Post } from '@nestjs/common';
 
 import { ListService } from './list.service';
 
-@Controller('list')
+@Controller('')
 export class ListController {
   constructor(private readonly listService: ListService) {}
 
-  @Post()
+  @Post('subscribe')
   subscribe(@Body('results') results: any) {
     // call subscribe service
+    return this.listService.subscribe(results);
   }
 
-  @Post()
+  @Post('unsubscribe')
   unsubscribe(@Body('results') results: any) {
     // call unsubscribe service
+    return this.listService.unsubscribe(results);
   }
 }

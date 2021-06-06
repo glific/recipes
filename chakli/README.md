@@ -37,11 +37,11 @@ $ npm run start:prod
 
 This example assumes you have created a list in MailChimp
 
-`http://glific.test:3001/list/subscribe`
+`http://glific.test:3001/subscribe`
 
 - This endpoint can be called for subscribing to a list.
 
-`http://glific.test:3001/list/unsubscribe`
+`http://glific.test:3001/unsubscribe`
 
 - This endpoint can be called for unsubscribing from a list.
 
